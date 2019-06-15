@@ -1,0 +1,91 @@
+<!-- 该 demo 演示不卡顿的时间 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    button {
+      outline: none;
+    }
+    #demo {
+      width:100px;
+      height:100px;
+      border:1px solid #ccc;
+      margin:0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo"></div>
+  <div id="operation">
+    <button delay="10">10ms</button>
+    <button delay="30">30ms</button>
+    <button delay="50">50ms</button>
+    <button delay="100">100ms</button>
+    <button delay="200">200ms</button>
+    <button delay="300">300ms</button>
+    <button delay="500">500ms</button>
+    <button delay="1000">1s</button>
+  </div>
+  <script>
+    function Delay(options) {
+      this.$options = options;
+      this.init();
+    }
+
+    const proto = Delay.prototype;
+
+    proto.init = function () {
+      const options = this.$options;
+      const operation = document.querySelector(options.operation);
+      operation.addEventListener('click', this.buttonsClickHandle.bind(this), false);
+    };
+
+    proto.buttonsClickHandle = function (event) {
+      const target = event.target;
+      const tagName = target.tagName.toLowerCase();
+      if (tagName !== 'button') return;
+      const delay = target.getAttribute('delay');
+      this.sleep(Number(delay) - 5);
+      this.switchColor();
+    };
+
+    proto.sleep = function (delay) {
+      const end = performance.now() + delay;
+      while (performance.now() <= end) { }
+    };
+
+    proto.switchColor = function () {
+      const el = document.querySelector('#demo');
+      el.style.backgroundColor = this.getRandomColor();
+    };
+
+    proto.getRandomColor = function () {
+      const rowColors = '0123456789abcdef';
+      let colors = '#';
+      let i = 6;
+      let len = rowColors.length;
+      while (i--) {
+        const n = this.random(0, len);
+        colors += rowColors.charAt(n);
+      }
+      return colors;
+    };
+
+    proto.random = function (n, m) {
+      const len = m - n;
+      return Math.floor(n + Math.random() * len);
+    };
+
+    new Delay({
+      operation: '#operation',
+      demo: '#demo'
+    });
+  </script>
+</body>
+
+</html>
