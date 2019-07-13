@@ -4,13 +4,13 @@ import WorkerCode from '../worker' // web Worker 方案
 // web worker 方案
 function WebWorker() {
   useEffect(() => {
-    const testWorker = new Worker(WorkerCode)
+    const worker = new Worker(WorkerCode)
     const id = setInterval(() => {
-      testWorker.postMessage({})
-      testWorker.onmessage = function(ev) {
+      worker.postMessage({})
+      worker.onmessage = function(ev) {
         console.log(ev.data)
       }
-    }, 2000)
+    }, 5000)
     return () => clearInterval(id)
   })
 

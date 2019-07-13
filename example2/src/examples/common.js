@@ -7,7 +7,7 @@ function Common() {
       const start = performance.now()
       while (performance.now() - start < 1000) { console.log('执行阻塞任务') }
       console.log('done!')
-    }, 2000)
+    }, 5000)
     return () => clearInterval(id)
   })
 

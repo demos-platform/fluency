@@ -16,10 +16,10 @@ function App() {
       <h1 className="duoduo-title"><span className="duoduo-title-name"></span></h1>
       <div className="body">
         <nav>
-          <NavLink to="/">复现情景</NavLink>
-          <NavLink to="webworker">demo1</NavLink>
-          <NavLink to="requestIdleCallback">demo2</NavLink>
-          <NavLink to="timeSlicing">demo3</NavLink>
+          <NavLink to="/">Long Tasks</NavLink>
+          <NavLink to="webworker">方案一</NavLink>
+          <NavLink to="requestIdleCallback">方案二(1)</NavLink>
+          <NavLink to="timeSlicing">方案二(2)</NavLink>
         </nav>
         <div className="tab-container">
           <Router>

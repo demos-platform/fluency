@@ -13,7 +13,7 @@ function TimeSlicing() {
         }
         console.log("done!")
       })
-    }, 2000)
+    }, 5000)
     return () => clearInterval(id)
   })
 
