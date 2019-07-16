@@ -18,8 +18,8 @@ function App() {
         <nav>
           <NavLink to="/">Long Tasks</NavLink>
           <NavLink to="webworker">方案一</NavLink>
-          <NavLink to="requestIdleCallback">方案二(1)</NavLink>
-          <NavLink to="timeSlicing">方案二(2)</NavLink>
+          {/* <NavLink to="requestIdleCallback">方案二(1)</NavLink> */}
+          <NavLink to="timeSlicing">方案二</NavLink>
         </nav>
         <div className="tab-container">
           <Router>

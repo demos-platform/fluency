@@ -6,28 +6,32 @@
   <title>Demos</title>
 </head>
 
-<body>
+<!-- <body>
   <style>
     .box {
       border-bottom: 1px solid #fff;
-      width: 250px;
+      width: 500px;
       text-align: center;
       color:#000;
+      background: red;
     }
   </style>
-  <button id="btn">测试</button>
-  <div id="box">demo</div>
+  <button id="btn">缩小宽度</button>
+  <div id="box" class="box">demo</div>
   <script>
     const btn = document.getElementById('btn');
 
     const box = document.getElementById('box');
     btn.onclick = function () {
-      box.style.width = '200px';
+      // ask for it
       const width = box.offsetWidth
+      // update Style
+      box.style.width = '200px'
+      console.log('currentWidth', width)
     }
   </script>
-</body>
-<!-- <body>
+</body> -->
+<body>
   <style>
     .container {
       width:200px;
@@ -37,37 +41,37 @@
       border-bottom: 1px solid #fff;
       width: 250px;
       text-align: center;
-      color:#fff;
+      color:#000;
     }
   </style>
   <button id="btn">走你~</button>
   <div class="container"></div>
   <script>
-    const btn = document.querySelector('#btn');
-    const container = document.querySelector('.container');
-    const count = 1000;
-    const dom = generateDiv(count);
-    container.appendChild(dom);
+    const btn = document.querySelector('#btn')
+    const container = document.querySelector('.container')
+    const count = 1000
+    const dom = generateDiv(count)
+    container.appendChild(dom)
 
     function generateDiv(n) {
-      const fgm = document.createDocumentFragment();
+      const fgm = document.createDocumentFragment()
       for (let i = 0; i < n; i++) {
-        const div = document.createElement('div');
-        div.innerText = '我是DIV';
-        div.classList.add('box');
-        fgm.appendChild(div);
+        const div = document.createElement('div')
+        div.innerText = '我是DIV'
+        div.classList.add('box')
+        fgm.appendChild(div)
       }
-      return fgm;
+      return fgm
     }
 
-    const boxes = document.querySelectorAll('.box');
-    btn.onclick = function () {
-      for (var i = 0; i < boxes.length; i++) {
-        const newWidth = container.offsetWidth - 2;
-        boxes[i].style.width = newWidth + 'px';
-      }
-    }
+const boxes = document.querySelectorAll('.box')
+btn.onclick = function () {
+  const newWidth = container.offsetWidth - 2
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i].style.width = newWidth + 'px'
+  }
+}
   </script>
-</body> -->
+</body>
 
 </html>
